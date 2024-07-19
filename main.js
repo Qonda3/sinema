@@ -59,9 +59,6 @@ function showMovieDetails(movieId) {
         <div class="modal-details">
           <p class="modal-info"><span>Rating:</span> ${movie.vote_average.toFixed(1)}/10</p>
           <p class="modal-info"><span>Genres:</span> ${movie.genres.map(genre => genre.name).join(', ')}</p>
-          <p class="modal-info"><span>Director:</span> ${movie.credits.crew.find(person => person.job === 'Director')?.name || 'N/A'}</p>
-          <p class="modal-info"><span>Writer:</span> ${movie.credits.crew.find(person => person.job === 'Screenplay')?.name || 'N/A'}</p>
-          <p class="modal-info"><span>Cast:</span> ${movie.credits.cast.slice(0, 5).map(actor => actor.name).join(', ')}</p>
           <p class="modal-info"><span>Overview:</span> ${movie.overview}</p>
         </div>
       `;
