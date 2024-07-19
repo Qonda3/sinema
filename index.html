@@ -3,88 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Popular Movies</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f0f0f0;
-    }
-    .App {
-      text-align: center;
-    }
-    .movie-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    .movie-card {
-      background-color: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .movie-card img {
-      width: 100%;
-      height: auto;
-    }
-    .movie-card h2 {
-      font-size: 1.2em;
-      margin: 10px;
-    }
-    .movie-card p {
-      padding: 0 10px 10px;
-      font-size: 0.9em;
-      color: #666;
-    }
-  </style>
+  <title>Sinema</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <nav class="navbar">
+    <div class="logo">S I N E M A</div>
+    <ul class="nav-links">
+      <li><a href="#" onclick="loadMovies('popular')" id="popular">Popular</a></li>
+      <li><a href="#" onclick="loadMovies('upcoming')" id="upcoming">Upcoming</a></li>
+      <li><a href="#" onclick="loadMovies('top_rated')" id="top_rated">Top Rated</a></li>
+    </ul>
+  </nav>
+
   <div class="App">
-    <h1>Popular Movies</h1>
     <div class="movie-grid" id="movie-grid"></div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const movieGrid = document.getElementById('movie-grid');
+  <div id="movieModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
 
-      const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MGVkOWZhNzlhZGZmYzVlZDBlYWQ2OTQ0MzJmODlkYSIsIm5iZiI6MTcyMTM3ODA4My4wMzE2NjEsInN1YiI6IjY2OWEyMjIxM2YwNWQwZjc0MzUwMjFkYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kIIlVjgw_7TgQNrs0X7bFn8itRFZN1oFccQZZqTCqoM'
-        }
-      };
-
-      fetch('https://api.themoviedb.org/3/movie/popular', options)
-        .then(response => response.json())
-        .then(data => {
-          data.results.forEach(movie => {
-            const movieCard = document.createElement('div');
-            movieCard.className = 'movie-card';
-
-            const moviePoster = document.createElement('img');
-            moviePoster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-            moviePoster.alt = movie.title;
-
-            const movieTitle = document.createElement('h2');
-            movieTitle.textContent = movie.title;
-
-            const movieOverview = document.createElement('p');
-            movieOverview.textContent = movie.overview;
-
-            movieCard.appendChild(moviePoster);
-            movieCard.appendChild(movieTitle);
-            movieCard.appendChild(movieOverview);
-
-            movieGrid.appendChild(movieCard);
-          });
-        })
-        .catch(err => console.error('Error fetching movies:', err));
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
