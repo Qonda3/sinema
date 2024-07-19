@@ -1,10 +1,9 @@
-const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MGVkOWZhNzlhZGZmYzVlZDBlYWQ2OTQ0MzJmODlkYSIsIm5iZiI6MTcyMTM3ODA4My4wMzE2NjEsInN1YiI6IjY2OWEyMjIxM2YwNWQwZjc0MzUwMjFkYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kIIlVjgw_7TgQNrs0X7bFn8itRFZN1oFccQZZqTCqoM';
 
 const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: `Bearer ${API_KEY}`
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MGVkOWZhNzlhZGZmYzVlZDBlYWQ2OTQ0MzJmODlkYSIsIm5iZiI6MTcyMTM3ODA4My4wMzE2NjEsInN1YiI6IjY2OWEyMjIxM2YwNWQwZjc0MzUwMjFkYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kIIlVjgw_7TgQNrs0X7bFn8itRFZN1oFccQZZqTCqoM`
   }
 };
 
